@@ -3,8 +3,8 @@ const fs = require('fs');
 const cron = require('node-cron');
 
 const bot = new Telegraf('telegram_token');
-const channelId = 'channel_id';
-const adminId = 'admin_id'; // Your Telegram user ID
+const channelId = '@channelId';
+const adminId = '@adminId'; // Your Telegram user ID
 const userDataFile = 'user_data.json';
 
 // Initialize user data array
@@ -19,7 +19,7 @@ if (fs.existsSync(userDataFile)) {
 bot.start((ctx) => {
   ctx.reply('درود! تو میتونی اینجا هر اعترافی که میخوای بکنی و پیامت مستقیم میره توی کانال اعترافات! \n فقط ما هیچ مسئولیتی در قبال چیزی که شما مینویسید و توی کانال میره نداریم! \n یه جوری بنویس که مجبور نشیم رباتو متوقف کنیم کانالم ببندیم :)',
     Markup.inlineKeyboard([
-      Markup.button.url('Join our Confessions Channel', `https://t.me/${channelUsername.slice(1)}`)
+      Markup.button.url('Join our Confessions Channel', `https://t.me/${channelId.slice(1)}`)
     ])
   );
   // Collect user data
